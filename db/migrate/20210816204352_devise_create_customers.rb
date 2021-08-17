@@ -9,7 +9,8 @@ class DeviseCreateCustomers < ActiveRecord::Migration[5.2]
       
       
       #以下追加カラム
-      t.boolean :userstatus,        default: true, null: false
+      t.boolean :userstatus,        default: true, null: false #ミスデータ
+      t.boolean :user_status,        default: true, null: false
       # ↑会員ステータスカラム TRUE =有効　FALSE =退会済
       
       t.string :l_name,          null: false, default: ""
