@@ -1,6 +1,7 @@
 class Admins::ItemsController < ApplicationController
 
   def index
+    @items = Item.all
   end
 
   def new
@@ -9,8 +10,11 @@ class Admins::ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-    @item.save
-    redirect_to admin_items_path
+    if @item.save
+       redirect_to admins_items_path
+    else
+       redirect_to new_admins_item_path
+    end
   end
 
 
