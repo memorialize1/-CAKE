@@ -37,7 +37,10 @@
 
         <div class="form-group row">
           <%= f.label :販売ステータス, class: "col-sm-4" %>
-          <%= f.select :sale_status, [["販売可", "販売可"], ["販売不可","販売不可"]], class: "form-control col-sm-8" %>
+          <%= f.radio_button :sale_status, :販売中 %>
+          <%= f.label :sale_status, '販売中' %>
+          <%= f.radio_button :sale_status, :販売停止中 %>
+          <%= f.label :sale_status, '販売停止中' %>
         </div>
       </div>
     </div>
