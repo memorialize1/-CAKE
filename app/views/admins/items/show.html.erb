@@ -1,0 +1,7 @@
+<%= attachment_image_tag @item, :image, size: "50x50", format: 'jpeg', fallback: "no_image.jpg" %>
+
+<%= @item.name %>
+<%= @item.introduction %>
+<%= @item.genre.name %>
+<%= @item.price %>
+<%= @item.sale_status %>
