@@ -15,7 +15,9 @@
        <nav class="navbar navbar-expand navbar-dark bg-dark navbar-fixed-top", style="background-color: #432c28;">
         <div class="container">
           <div class="row">
-            <%= link_to "ながのcake管理者サイト", admin_root_path, class: "navbar-brand" %>
+
+            <%= link_to "ながのcake管理者サイト", admins_root_path, class: "navbar-brand" %>
+
 
             <% if admin_signed_in? %>
             <ul class="navbar-nav">
@@ -91,7 +93,7 @@
          </div>
        </nav>
       <% end %>
-    </header>
     <%= yield %>
+    </header>
   </body>
 </html>
