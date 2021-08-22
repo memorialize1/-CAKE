@@ -7,7 +7,7 @@
 
 	<div class="row my-3">
 		<div class="offset-sm-3">
-			<strong class="red-border px-3 pb-1">登録情報</strong>
+		  <strong class="red-border px-3 pb-1">登録情報</strong>
 		</div>
 	</div>
 
@@ -18,45 +18,45 @@
 	      <tr class="brown-border">
 		    	<td>氏名</td>
 		    	<td>
-		    		<%= @customer.l_name %>
-		    		<%= @customer.f_name %>
+		    	  <%= @customer.l_name %>
+		    	  <%= @customer.f_name %>
 		    	</td>
 	      </tr>
 
 	      <tr class="brown-border">
 		    	<td>フリガナ</td>
 		    	<td>
-		    		<%= @customer.l_kana %>
-		    		<%= @customer.f_kana %>
+		    	  <%= @customer.l_kana %>
+		    	  <%= @customer.f_kana %>
 	    		</td>
 	      </tr>
 
 	      <tr class="brown-border">
-		    	<td>郵便番号</td>
-		    	<td><%= @customer.post_code %></td>
+		    <td>郵便番号</td>
+		    <td><%= @customer.post_code %></td>
 	      </tr>
 
 	      <tr class="brown-border">
-		    	<td>住所</td>
-		    	<td><%= @customer.address %></td>
+		   	<td>住所</td>
+		    <td><%= @customer.address %></td>
 	      </tr>
 
 	      <tr class="brown-border">
-		    	<td>電話番号</td>
-		    	<td><%= @customer.phone_number %></td>
+		    <td>電話番号</td>
+		    <td><%= @customer.phone_number %></td>
 	      </tr>
 
 	      <tr class="brown-border">
-	    		<td>メールアドレス</td>
+	    	<td>メールアドレス</td>
 	        <td><%= @customer.email %></td>
 	      </tr>
 	    </table>
 
 	    <div class="row">
 		    <%= link_to "編集する", edit_customer_path(@customer), class: "btn btn-outline-danger mx-auto my-1" %>
-		  </div>
-		  <div class="row">
-				<%= link_to "パスワードを変更する", edit_customer_registration_path, class: "btn btn-outline-danger mx-auto my-1" %>
+		</div>
+		<div class="row">
+			<%= link_to "パスワードを変更する", edit_customer_registration_path, class: "btn btn-outline-danger mx-auto my-1" %>
 	   </div>
 
 	 </div>
@@ -68,5 +68,5 @@
 		 	<div class="row">
 				<%= link_to "注文一覧を見る", orders_path, class: "btn btn-primary btn-outline-danger my-1" %>
 			</div>
-	</div>
+	    </div>
 </div>
