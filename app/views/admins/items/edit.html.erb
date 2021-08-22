@@ -1,0 +1,29 @@
+<%= form_with model:@item, url: admins_item_path(@item), local:true do |f| %>
+        <div class = "form-group">
+          <label>商品名</label></br>
+          <%= f.text_field :name, class: "form-control col-sm-8" %>
+        </div>
+        <div class = "form-group">
+          <label>商品説明</label></br>
+          <%= f.text_area :introduction, class: "form-control col-sm-8" %>
+        </div>
+        <div class = "form-group">
+          <label>ジャンル</label></br>
+　　　　　<%= f.collection_select :genre_id, Genre.all, :id, :name, class: "form-control col-sm-8" %>
+        <div class = "form-group">
+          <label>税込価格</label></br>
+          <%= f.text_field :price, class: "form-control col-sm-7" %>
+        </div>
+        <div class = "form-group">
+          <label>販売ステータス</label></br>
+          <%= f.radio_button :sale_status, :販売中 %>
+          <%= f.label :sale_status, '販売中' %>
+          <%= f.radio_button :sale_status, :販売停止中 %>
+          <%= f.label :sale_status, '販売停止中' %>
+        </div>
+
+
+        <div class = "form-group">
+          <%= f.submit '変更を保存' %>
+        </div>
+  <% end %>
