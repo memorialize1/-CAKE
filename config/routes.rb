@@ -17,7 +17,6 @@ Rails.application.routes.draw do
   #ADMIN
   namespace :admins do
     root 'homes#top'
-    get 'homes#about'
     resources :customer_datas, only: [:show, :index, :edit, :update]
     resources :items, except: [:destroy]
     resources :genres, except: [:new, :show, :destroy]
@@ -39,6 +38,7 @@ Rails.application.routes.draw do
 
   #CUSTOMER
   root 'homes#top'
+   get "about" =>"homes#about"
   get '/thanks' => 'homes#thanks'
   #サンクスページ
   get '/orders/confirm' => 'orders#confirm', as: 'orders_confirm'
