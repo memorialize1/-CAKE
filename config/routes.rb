@@ -9,13 +9,13 @@ Rails.application.routes.draw do
 
 
   devise_for :admin, controllers: {
-    sessions: 'admin/sessions',
-    passwords: 'admin/passwords',
-    registrations: 'admin/registrations'
+    sessions: 'admins/sessions',
+    passwords: 'admins/passwords',
+    registrations: 'admins/registrations'
   }
 
   #ADMIN
-  namespace :admin do
+  namespace :admins do
     root 'homes#top'
     resources :customer_datas, only: [:show, :index, :edit, :update]
     resources :items, except: [:destroy]
@@ -38,6 +38,7 @@ Rails.application.routes.draw do
 
   #CUSTOMER
   root 'homes#top'
+
   get "about" =>"homes#about"
   get '/thanks' => 'homes#thanks'
   #サンクスページ

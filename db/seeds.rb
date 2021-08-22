@@ -8,15 +8,7 @@
 
 
 
-Customer.create!(
-                  user_status: "true",
-                  l_name: "見本",
-                  f_name: "名前",
-                  l_kana: "サンプル",
-                  f_kana: "ネーム",
-                  phone_number: "00000000000",
+Admin.create!(
                   email: "example@mail.com",
                   password: "123456",
-                  post_code: "0000000",
-                  address: "日本",
                   )
