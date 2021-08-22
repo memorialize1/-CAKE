@@ -38,6 +38,8 @@ Rails.application.routes.draw do
 
   #CUSTOMER
   root 'homes#top'
+
+  get "about" =>"homes#about"
   get '/thanks' => 'homes#thanks'
   #サンクスページ
   get '/orders/confirm' => 'orders#confirm', as: 'orders_confirm'
