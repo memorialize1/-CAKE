@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-2">
+      <table class="table table-bordered">
+        <th class="genre-th">Genre</th>
+        <% @genres.each do |f|%>
+        <% if f.status == true %>
+        <tr class="genre-tr">
+          <td class="genre-td">
+            <%# ジャンルが無効なら表示しない %>
+            <%= link_to f.name, genre_path(f.id) %>
+            <% end %></td>
+        </tr>
+        <% end %>
+      </table>
+    </div>
+
+  <div class="col-md-10">
+    <h3 class="item-index">商品一覧（全<%= @items.count %>件）</h3>
+    <div id="item">
+    <% @items.each do |item| %>
+      <div class="col-md-3">
+        <table>
+          <tr>
+            <td>
+              <%= link_to item_path(item) do %>
+              <%= attachment_image_tag item, :item_image, format: 'jpeg', fallback: "no_image.jpg", size: "200x100" %>
+              <% end %><br>
+              <%= item.name %><br>
+              <%= item.tax_included.to_s(:delimited) %>円
+            </td>
+          </tr>
+        </table>
+      </div>
+    <% end %>
+    </div>
+    <!-- １ページに８件表示する -->
+    <%= paginate @items %>
+    </div>
+  </div>
+</div>

@@ -1,19 +1,19 @@
-class ItemsController < ApplicationController
-
+class ProductsController < ApplicationController
   before_action :authenticate_user!, only: [:show]
 
   def index
-  	@items = Item.all.page(params[:page]).per(8)
+  	@products = Product.all.page(params[:page]).per(8)
   	@genres = Genre.all
     # ジャンルの表示
   end
 
   def show
-  	@item = Item.find(params[:id])
+  	@product = Product.find(params[:id])
   	@cart = Cart.new
     @user = current_user
 
     @genres = Genre.all
     # ジャンルの表示
   end
+
 end
