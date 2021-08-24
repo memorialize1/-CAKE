@@ -1,0 +1,66 @@
+<div class="container my-5">
+  <div class="row pl-5">
+      <h4>
+        <%= @customer.l_name %>
+        <%= @customer.f_name %>
+        さんの会員情報編集
+      </h4>
+  </div>
+
+　<%= form_with model:@customer, url: admins_customer_date_path(@customer), local:true do |f| %>
+
+    <div class="row justify-content-center mt-5">
+      <div class="col-sm-6">
+
+        <div class="form-group row">
+          <%= f.label :会員ID, class: "col-sm-4" %>
+          <%= @customer.id %>
+        </div>
+
+        <div class="form-group row">
+          <%= f.label :氏名, class: "col-sm-4" %>
+          <%= f.text_field :l_name, class: "form-control col-sm-4" %>
+          <%= f.text_field :f_name, class: "form-control col-sm-4" %>
+        </div>
+
+        <div class="form-group row">
+          <%= f.label :フリガナ, class: "col-sm-4" %>
+          <%= f.text_field :l_kana, class: "form-control col-sm-4" %>
+          <%= f.text_field :f_kana, class: "form-control col-sm-4" %>
+        </div>
+
+        <div class="form-group row">
+          <%= f.label :郵便番号, class: "col-sm-4" %>
+          <%= f.text_field :post_code, class: "form-control col-sm-8" %>
+        </div>
+
+        <div class="form-group row">
+          <%= f.label :住所, class: "col-sm-4" %>
+          <%= f.text_field :address, class: "form-control col-sm-8" %>
+        </div>
+
+        <div class="form-group row">
+          <%= f.label :電話番号, class: "col-sm-4" %>
+          <%= f.text_field :phone_number, class: "form-control col-sm-8" %>
+        </div>
+
+        <div class="form-group row">
+          <%= f.label :メールアドレス, class: "col-sm-4" %>
+          <%= f.text_field :email, class: "form-control col-sm-8" %>
+        </div>
+
+        <div class="form-group row">
+          <%= f.label :会員ステータス, class: "col-sm-4" %>
+          <%= f.radio_button :user_status, :true %>
+          <%= f.label :user_status, '有効', class: "col-sm-2" %>
+          <%= f.radio_button :user_status, :false %>
+          <%= f.label :user_status, '退会', class: "col-sm-2" %>
+        </div>
+        <div class="row justify-content-center mt-5">
+          <div class="col-sm-3">
+            <%= f.submit :変更を保存, class: "btn btn-success" %>
+          </div>
+        </div>
+      </div>
+  <% end %>
+</div>

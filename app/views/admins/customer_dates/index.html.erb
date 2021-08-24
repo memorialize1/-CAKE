@@ -1,0 +1,39 @@
+<div class="container my-5">
+  <div class="row">
+    <h2>会員一覧</h2>
+  </div>
+
+  <div class="row mt-1">
+    <table class="table table-hover text-center">
+      <thead>
+        <tr>
+          <th>会員ID</th>
+          <th>氏名</th>
+          <th>メールアドレス</th>
+          <th>ステータス</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @customers.each do |customer| %>
+          <tr>
+            <td><%= customer.id %></td>
+            <td>
+              <%= link_to admins_customer_date_path(customer) do %>
+                <%= customer.l_name %>
+                <%= customer.f_name %>
+              <% end %>
+            </td>
+            <td><%= customer.email %></td>
+            <td><% if customer.user_status == true %>
+                有効
+                <% else %>
+                退会
+                <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

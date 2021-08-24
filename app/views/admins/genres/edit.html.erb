@@ -1,0 +1,17 @@
+<div class="container my-5">
+  <div class="row">
+    <h2>ジャンル編集</h2>
+  </div>
+
+  <div class="row mt-5">
+    <div class = "col-sm-5">
+    <%= form_with model: @genre, url: admins_genre_path(@genre), local:true do |f| %>
+      <div class="form-group row">
+        <%= f.label :ジャンル名, class: "col-sm-3" %>
+        <%= f.text_field :name, class: "form-control col-sm-4" %>
+        <%= f.submit :変更を保存, class: "col-sm-3 ml-5 btn btn-success" %>
+      </div>
+    <% end %>
+    </div>
+  </div>
+</div>

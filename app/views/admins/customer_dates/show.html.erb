@@ -1,0 +1,74 @@
+<div class="container my-5">
+  <div class="row pl-5">
+      <h4>
+        <%= @customer.l_name %>
+        <%= @customer.f_name %>
+        さんの会員詳細
+      </h4>
+  </div>
+
+  <div class = "row mt-4">
+    <div class = "col-sm-5">
+        <table class="table table-borderless">
+            <tbody>
+                <tr>
+                    <td>会員ID</td>
+                    <td><%= @customer.id %></td>
+                </tr>
+
+                <tr>
+                    <td>氏名</td>
+                    <td>
+                      <%= @customer.l_name %>
+                      <%= @customer.f_name %>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>フリガナ</td>
+                    <td>
+                      <%= @customer.l_kana %>
+                      <%= @customer.f_kana %>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>郵便番号</td>
+                    <td><%= @customer.post_code %></td>
+                </tr>
+
+                <tr>
+                    <td>住所</td>
+                    <td><%= @customer.address %></td>
+                </tr>
+
+                <tr>
+                    <td>電話番号</td>
+                    <td><%= @customer.phone_number %></td>
+                </tr>
+
+                <tr>
+                    <td>メールアドレス</td>
+                    <td><%= @customer.email %></td>
+                </tr>
+
+                <tr>
+                    <td>会員ステータス</td>
+                    <td><% if @customer.user_status == true %>
+                        有効
+                        <% else %>
+                        退会
+                        <% end %>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+  </div>
+
+  <div class = "row mt-4 justify-content-center">
+      <%= link_to "編集する", edit_admins_customer_date_path(@customer), class: "btn btn-success" %>
+  </div>
+
+</div>
