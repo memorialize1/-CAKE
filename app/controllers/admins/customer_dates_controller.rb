@@ -16,6 +16,7 @@ class Admins::CustomerDatesController < ApplicationController
     if @customer.update(customer_params)
       redirect_to admins_customer_dates_path
     else
+      flash[:customer_date_error] = "会員情報が正常に保存されませんでした"
       render :edit
     end
   end

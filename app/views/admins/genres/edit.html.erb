@@ -3,6 +3,11 @@
     <h2>ジャンル編集</h2>
   </div>
 
+  <% if flash[:genre_error] %>
+    <span class="text-danger"><%= flash[:genre_error] %></span>
+  <% end %>
+
+
   <div class="row mt-5">
     <div class = "col-sm-5">
     <%= form_with model: @genre, url: admins_genre_path(@genre), local:true do |f| %>

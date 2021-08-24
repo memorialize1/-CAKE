@@ -3,6 +3,10 @@
     <h2>ジャンル一覧・追加</h2>
   </div>
 
+  <% if flash[:genre_error] %>
+    <span class="text-danger"><%= flash[:genre_error] %></span>
+  <% end %>
+
   <div class="row mt-5">
     <div class = "col-sm-5">
     <%= form_with model: @genre, url: admins_genres_path, local:true do |f| %>

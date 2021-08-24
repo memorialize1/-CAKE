@@ -13,6 +13,7 @@ class Admins::ItemsController < ApplicationController
     if @item.save
        redirect_to admins_items_path
     else
+       flash[:item_error] = "商品情報が正常に保存されませんでした。"
        redirect_to new_admins_item_path
     end
   end
@@ -30,6 +31,7 @@ class Admins::ItemsController < ApplicationController
     if @item.update(item_params)
       redirect_to admins_item_path(@item)
     else
+      flash[:item_error] = "商品情報が正常に保存されませんでした。"
       render :edit
     end
   end
