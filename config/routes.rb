@@ -40,7 +40,7 @@ Rails.application.routes.draw do
   root 'homes#top'
 
 
-
+  get "search" => "items#search"
   get "about" =>"homes#about"
   get '/thanks' => 'homes#thanks'
   #サンクスページ
