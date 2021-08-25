@@ -1,5 +1,5 @@
 <% if @delivery.errors.any? %>
-<h3><%= @delivery.errors.count %>個のエラーがあります。</h3>
+<h3><%= @delivery.errors.count %>個のエラーがあります</h3>
 <% @delivery.errors.full_messages.each do |message| %>
 <ul>
   <li><%= message %></li>
