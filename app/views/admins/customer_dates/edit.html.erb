@@ -7,6 +7,11 @@
       </h4>
   </div>
 
+  <% if flash[:customer_date_error] %>
+    <span class="text-danger"><%= flash[:customer_date_error] %></span>
+  <% end %>
+
+
 　<%= form_with model:@customer, url: admins_customer_date_path(@customer), local:true do |f| %>
 
     <div class="row justify-content-center mt-5">
