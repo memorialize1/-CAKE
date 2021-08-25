@@ -1,14 +1,12 @@
 <div class="container my-5">
-  <div class="row">
-    <div class="col-sm-4">
-      <h2>商品 新規登録画面</h2>
-    </div>
+  <div class="row pl-5">
+      <h4 class = "bg-light">商品編集</h2>
   </div>
 
-  <%= form_with model: @item, url: admins_items_path, local:true do |f| %>
+　<%= form_with model:@item, url: admins_item_path(@item), local:true do |f| %>
 
     <div class="row justify-content-center mt-5">
-      <div class="col-sm-5">
+      <div class="col-sm-6">
         <div class="form-group row">
           <%= f.label :商品画像, class: "col-sm-4" %>
           <%= f.attachment_field :image %>
@@ -38,20 +36,15 @@
         <div class="form-group row">
           <%= f.label :販売ステータス, class: "col-sm-4" %>
           <%= f.radio_button :sale_status, :販売中 %>
-          <%= f.label :sale_status, '販売中' %>
+          <%= f.label :sale_status, '販売中', class: "col-sm-2" %>
           <%= f.radio_button :sale_status, :販売停止中 %>
-          <%= f.label :sale_status, '販売停止中' %>
+          <%= f.label :sale_status, '販売停止中', class: "col-sm-2" %>
+        </div>
+        <div class="row justify-content-center mt-5">
+          <div class="col-sm-3">
+            <%= f.submit :変更を保存, class: "btn btn-success" %>
+          </div>
         </div>
       </div>
-    </div>
-
-      <div class="row justify-content-center mt-5">
-        <div class="col-sm-3">
-          <%= f.submit :新規登録, class: "btn btn-success" %>
-        </div>
-      </div>
-
-
   <% end %>
-
 </div>

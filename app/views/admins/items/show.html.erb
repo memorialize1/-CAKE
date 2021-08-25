@@ -41,14 +41,18 @@
       </div>
   </div>
 
-
-</div>
-      <!-- カートに入れるボタン -->
-               <%= form_with model:@cart, url:cart_items_path, local:true do |f| %>
-            <%= f.number_field :quantity, min:1, placeholder: "個数選択" %>個
-            <%= f.hidden_field :item_id, :value => @item.id %>
-            <%= f.submit "カートに入れる", class: "btn btn-outline-danger" %>
-      　　<% end %>
-    </div>
+  <div class = "row mt-4 justify-content-center">
+      <%= link_to "編集する", edit_admins_item_path(@item), class: "btn btn-success" %>
   </div>
 </div>
+
+
+
+
+
+
+
+
+
+
+
