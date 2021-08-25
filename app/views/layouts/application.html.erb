@@ -93,6 +93,8 @@
          </div>
        </nav>
       <% end %>
+
+      <% if customer_signed_in? %>
       <div class="item">
        <center>
        <%= form_with url: search_path, method: :get, local: true do |f| %>
@@ -101,6 +103,7 @@
        <% end %>
        </center>
       </div>
+      <% end %>
       <%= yield %>
     </header>
   </body>
