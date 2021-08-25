@@ -1,3 +1,55 @@
+<div class="container my-5">
+  <div class="row pl-5">
+      <h4 class = "bg-light">商品詳細</h2>
+  </div>
+
+  <div class = "row mt-4 justify-content-center">
+      <div class = "col-sm-3">
+        <%= attachment_image_tag @item, :image, size: "200x200", format: 'jpeg' %>
+      </div>
+
+      <div class = "col-sm-5">
+          <table class="table table-borderless">
+              <tbody>
+                  <tr>
+                      <td>商品名</td>
+                      <td><%= @item.name %></td>
+                  </tr>
+
+                  <tr>
+                      <td>商品説明</td>
+                      <td><%= @item.introduction %></td>
+                  </tr>
+
+                  <tr>
+                      <td>ジャンル</td>
+                      <td><%= @item.genre.name %></td>
+                  </tr>
+
+                  <tr>
+                      <td>税込価格</br>(税抜価格)</td>
+                      <td><%= @item.price %>（<%= (@item.price * 1.1).floor %>）円</td>
+                  </tr>
+
+                  <tr>
+                      <td>販売ステータス</td>
+                      <td><%= @item.sale_status %></td>
+                  </tr>
+
+              </tbody>
+          </table>
+      </div>
+  </div>
+
+
+</div>
+      <!-- カートに入れるボタン -->
+               <%= form_with model:@cart, url:cart_items_path, local:true do |f| %>
+            <%= f.number_field :quantity, min:1, placeholder: "個数選択" %>個
+            <%= f.hidden_field :item_id, :value => @item.id %>
+            <%= f.submit "カートに入れる", class: "btn btn-outline-danger" %>
+      　　<% end %>
+=======
 <div class="container">
   <div class="row">
     <div class="col-md-2">
@@ -33,7 +85,8 @@
         <%= f.hidden_field :user_id, value: @user.id %>
         <%= f.select :stock, options_for_select((1..10).to_a), include_blank: "個数選択" %>
         <%= f.submit "カートに入れる",class: 'btn-item' %>
-      <% end %></div>
+      <% end %>
+      </div>
     </div>
   </div>
 </div>
