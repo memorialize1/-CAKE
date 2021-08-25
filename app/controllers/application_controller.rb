@@ -8,6 +8,7 @@ class ApplicationController < ActionController::Base
       root_path              #ここもpathはご自由に変更してください
     end
   end
+  
 
   
 end

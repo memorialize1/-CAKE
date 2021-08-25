@@ -16,4 +16,11 @@ class ItemsController < ApplicationController
     @genres = Genre.all
     # ジャンルの表示
   end
+  
+  def search
+   @items = Item.search(params[:keyword])
+   @keyword = params[:keyword]
+   render "index"
+  end
+
 end
