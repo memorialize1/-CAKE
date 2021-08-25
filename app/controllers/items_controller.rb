@@ -10,6 +10,7 @@ class ItemsController < ApplicationController
   	@item = Item.find(params[:id])
   	@cart = Cart.new
 
+
     @genres = Genre.all
     # ジャンルの表示
   end

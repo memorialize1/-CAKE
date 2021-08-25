@@ -5,6 +5,7 @@ class Admins::GenresController < ApplicationController
     if @genre.save
        redirect_to admins_genres_path
     else
+       flash[:genre_error] = "ジャンル名が空白です。"
        redirect_to admins_genres_path
     end
   end
@@ -13,6 +14,21 @@ class Admins::GenresController < ApplicationController
     @genre = Genre.new
     @genres = Genre.all
   end
+
+  def edit
+    @genre = Genre.find(params[:id])
+  end
+
+  def update
+    @genre = Genre.find(params[:id])
+    if @genre.update(genre_params)
+      redirect_to admins_genres_path
+    else
+      flash[:genre_error] = "ジャンル名が空白です。"
+      render :edit
+    end
+  end
+
 
   private
   def genre_params
