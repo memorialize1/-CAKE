@@ -10,8 +10,8 @@ class OrdersController < ApplicationController
   end
   
   def new
-    @ship_addresses = current_customer.ship_addresses
-    @ship_address = ShipAddress.new
+    @ship_addresses = current_customer.addresses
+    @ship_address = Address.new
     @order = Order.new
   end
   
