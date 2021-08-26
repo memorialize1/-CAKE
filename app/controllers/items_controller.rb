@@ -1,9 +1,7 @@
 class ItemsController < ApplicationController
 
   def index
-  	@items = Item.all.page(params[:page]).per(8)
-  	@genres = Genre.all
-    # ジャンルの表示
+  	@items = Item.where(sale_status: "販売中").page(params[:page]).per(8)
   end
 
   def show
