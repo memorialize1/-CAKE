@@ -22,7 +22,7 @@ Rails.application.routes.draw do
     resources :genres, except: [:new, :show, :destroy]
     resources :orders, only: [:index, :show]
 
-    get '/customer_dates/:id/orders' => 'orders#index', as: "customer_data_orders"
+    get '/customer_dates/:id/orders' => 'orders#index', as: "customer_date_orders"
     # 会員詳細 => 注文履歴の表示データを変える用
     get '/yesterday/orders' => 'orders#index', as: "yesterday_orders"
     # TOP,本日製作分の注文数 => 注文履歴の表示データ用

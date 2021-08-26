@@ -1,7 +1,11 @@
 class Admins::OrdersController < ApplicationController
 
   def index
+    if params[:id] 
+      @orders = Customer.find(params[:id]).orders.page(params[:page]).per(10)
+    else
     @orders = Order.page(params[:page]).per(10)
+    end
   end
 
   def show
@@ -13,14 +17,12 @@ class Admins::OrdersController < ApplicationController
   def order_status_update
     order = Order.find(params[:id])
     order.update(order_params)
-    # OrderModel after_update => 製作ステータスの自動変更
     redirect_to admins_order_path(order)
   end
 
   def item_status_update
     order_date = OrderDate.find(params[:id])
     order_date.update(order_date_params)
-    # OrderDetailModel after_update => 注文ステータスの自動更新
     redirect_to admins_order_path(order_date.order_id)
   end
 
