@@ -6,12 +6,12 @@ class OrdersController < ApplicationController
   
   def show
     @order = Order.find(params[:id])
-    @order_details = @order.order_details
+    @order_details = @order.order_dates
   end
   
   def new
-    @ship_addresses = current_customer.ship_addresses
-    @ship_address = ShipAddress.new
+    @ship_addresses = current_customer.addresses
+    @ship_address = Address.new
     @order = Order.new
   end
   
@@ -20,7 +20,7 @@ class OrdersController < ApplicationController
       @total_price = calculate(current_customer)
 
       if  session[:address].length <8
-        @address = ShipAddress.find(session[:address])
+        @address = Address.find(session[:address])
         
       end
   end
@@ -30,7 +30,7 @@ class OrdersController < ApplicationController
     if params[:select] == "select_address"
       session[:address] = params[:address]
     elsif params[:select] == "my_address"
-      session[:address] = "〒" + current_customer.post_code+current_customer.address+current_customer.last_name+current_customer.first_name
+      session[:address] = "〒" + current_customer.post_code+current_customer.address+current_customer.l_name+current_customer.f_name
     end
     if session[:address].present? && session[:payment].present?
       redirect_to orders_confirm_path
@@ -43,7 +43,7 @@ class OrdersController < ApplicationController
   
   # 情報入力画面にて新規配送先の登録
   def create_ship_address
-    @ship_address = ShipAddress.new(ship_address_params)
+    @ship_address = Address.new(ship_address_params)
     @ship_address.customer_id = current_customer.id
     @ship_address.save
     redirect_to new_order_path
@@ -62,8 +62,8 @@ class OrdersController < ApplicationController
     # saveができた段階でOrderモデルにorder_idが入る
 
     # オーダー商品ごとの詳細の保存
-    current_customer.cart.each do |cart|
-      @order_detail = OrderDetail.new
+    current_customer.carts.each do |cart|
+      @order_detail = OrderDate.new
       @order_detail.order_id = @order.id
       @order_detail.item_name = cart.item.name
       @order_detail.item_price = cart.item.price
@@ -72,7 +72,7 @@ class OrdersController < ApplicationController
       @order_detail.save
 
     end
-    current_customer.cart_items.destroy_all
+    current_customer.carts.destroy_all
     session.delete(:address)
     session.delete(:payment)
     redirect_to thanks_path

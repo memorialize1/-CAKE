@@ -30,7 +30,7 @@
         </div>
 
         <div class="form-check mt-3">
-          <% address = current_customer.post_code + current_customer.address + current_customer.last_name + current_customer.first_name %>
+          <% address = current_customer.post_code + current_customer.address + current_customer.l_name + current_customer.f_name %>
           <%= radio_button_tag :select, :my_address %>
           <%= label_tag :select, "ご自身の住所", {value: :my_address, style: "display: inline-block;"} %>
           <%= address %><br>

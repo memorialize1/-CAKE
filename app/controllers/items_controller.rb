@@ -10,7 +10,18 @@ class ItemsController < ApplicationController
   	@item = Item.find(params[:id])
   	@cart = Cart.new
 
+
     @genres = Genre.all
     # ジャンルの表示
   end
+
+
+
+  def search
+   @items = Item.search(params[:keyword])
+   @keyword = params[:keyword]
+   render "index"
+  end
+
+
 end

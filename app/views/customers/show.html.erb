@@ -53,20 +53,20 @@
 	    </table>
 
 	    <div class="row">
-		    <%= link_to "編集する", edit_customer_path(@customer), class: "btn btn-outline-danger mx-auto my-1" %>
+		    <%= link_to "編集する", edit_customer_path(@customer), class: "btn btn-primary mx-auto my-2" %>
 		</div>
 		<div class="row">
-			<%= link_to "パスワードを変更する", edit_customer_registration_path, class: "btn btn-outline-danger mx-auto my-1" %>
+			<%= link_to "パスワードを変更する", edit_customer_registration_path, class: "btn btn-danger mx-auto my-2" %>
 	   </div>
 
 	 </div>
 
 		<div class="offset-sm-1 col-sm-3">
 			<div class="row">
-		 		<%= link_to "配送先一覧を見る", ship_addresses_path, class: "btn btn-primary btn-outline-danger my-1" %>
+		 		<%= link_to "配送先一覧を見る", addresses_path, class: "btn  btn-success my-1" %>
 		 	</div>
 		 	<div class="row">
-				<%= link_to "注文一覧を見る", orders_path, class: "btn btn-primary btn-outline-danger my-1" %>
+				<%= link_to "注文一覧を見る", orders_path, class: "btn  btn-success my-1" %>
 			</div>
 	    </div>
 </div>
