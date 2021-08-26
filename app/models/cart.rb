@@ -5,7 +5,7 @@ class Cart < ApplicationRecord
    belongs_to :customer
    belongs_to :item
    
-   
+  
   def validate_into_cart
       cart_items = self.customer.carts
       if (quantity) == nil
