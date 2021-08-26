@@ -3,7 +3,7 @@ class Customer < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  
+
   #バリデーションについて
   validates :l_name,  presence: true
   validates :f_name, presence: true
@@ -15,9 +15,9 @@ class Customer < ApplicationRecord
   validates :post_code,  presence: true, format: {with: /\A\d{7}\z/}
   #郵便番号７桁固定
   validates :address, presence: true
-  
+
   has_many :cart_items, dependent: :destroy
-  has_many :ship_addresses, dependent: :destroy
+  has_many :addresses, dependent: :destroy
   has_many :orders, dependent: :destroy
-         
+
 end
