@@ -16,7 +16,7 @@ class Customer < ApplicationRecord
   #郵便番号７桁固定
   validates :address, presence: true
   
-  has_many :cart_items, dependent: :destroy
+  has_many :carts, dependent: :destroy
   has_many :ship_addresses, dependent: :destroy
   has_many :orders, dependent: :destroy
          

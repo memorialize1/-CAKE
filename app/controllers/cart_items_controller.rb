@@ -3,9 +3,8 @@ class CartItemsController < ApplicationController
  before_action :authenticate_customer!
 
   def index
-    null = Cart.where(customer_id: params[:id])
-    @cart_items = null.all
-    @total_price = calculate
+    @cart_items = current_customer.carts
+    @total_price = calculate(current_customer)
   end
 
   def create
@@ -44,12 +43,10 @@ class CartItemsController < ApplicationController
     params.require(:cart).permit(:customer_id, :item_id, :quantity)
   end
 
-  def calculate
+  def calculate(user)
     total_price = 0
     
-    null = Cart.where(customer_id: params[:id])
-    
-    null.each do |cart_item|
+    user.carts.each do |cart_item|
           total_price += cart_item.quantity * cart_item.item.price
         end
         
