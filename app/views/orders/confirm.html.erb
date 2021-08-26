@@ -20,7 +20,7 @@
         </thead>
 
         <tbody>
-          <% current_customer.cart_items.each do |cart| %>
+          <% current_customer.carts.each do |cart| %>
             <tr class="brown-border">
               <td>
                 <%= attachment_image_tag cart.item, :image, :size => '50x50',fallback: "no_image.jpg" %>
