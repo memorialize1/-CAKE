@@ -2,28 +2,30 @@
   
   <div class = "row">
     
-    <div class = "col-md-3">
+
+    <div class = "col-md-8 offset-md-2">
       
+      <div class = "row justify-content-center mt-5"><%= image_tag '長野cake.jpeg' %></div>
       
-      
-      
-    </div>
-    
-    <div class = "col-md-8 offset-md-1">
-      
-      <div class = "mo">
-        <h1>
-        <%= link_to "sign_in", new_customer_registration_path %>
-        </h1>
-        <h1>
-        <%= link_to "log_in", new_customer_session_path %>
-        </h1>
-        
-        <h1>
-        <%= link_to "index", cart_items_path %>
-        </h1>
+      <hr>
+        <div>
+          <p><center>当サイトは全国発送可能な長野CAKEの販売サイトです!!</center></p>
+          <p><center>あなたに合ったぴったりの洋菓子をお届けします!!!</center></p>
+        </div>
+      <hr>
+      <div class = "row justify-content-center">
+        <p>会員登録がお済みでない方はこちらへ</p>
+      </div>
+      <div class="row justify-content-center mt-1">
+          <%= link_to "会員登録", new_customer_registration_path, class: "btn btn-primary mx-auto my-2" %>
       </div>
       
+      <div class = "row justify-content-center">
+        <p>会員登録をされている方はこちらへ</p>
+      </div>
+      <div class="row justify-content-center mt-1">
+        <%= link_to "ログイン", new_customer_session_path, class: "btn  btn-success my-1" %>
+      </div>
       
       
     </div>
