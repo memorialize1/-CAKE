@@ -40,8 +40,8 @@ Rails.application.routes.draw do
   #CUSTOMER
   root 'homes#top'
 
-
  
+  
   get "about" =>"homes#about"
   get '/thanks' => 'homes#thanks'
   #サンクスページ
@@ -54,7 +54,9 @@ Rails.application.routes.draw do
   delete '/cart_items' => 'cart_items#destroy_all'
   #カートアイテムを全て削除
 
-  resources :customers, only: [:show, :edit, :update]
+  resources :customers, only: [:show, :edit, :update] 
+  
+  
 
   get '/customers/:id/withdrow' => 'customers#withdrow', as: 'withdrow_customer'
   #退会画面への遷移
@@ -63,7 +65,9 @@ Rails.application.routes.draw do
 
   resources :addresses, except: [:new, :show]
   resources :cart_items, except: [:new, :show, :edit]
-  resources :items, only: [:index, :show]
+  resources :items, only: [:index, :show] 
+    
+  
 
   resources :genres, only: [:index] do
   resources :items, only: [:index]
