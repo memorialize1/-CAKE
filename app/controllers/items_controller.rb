@@ -13,7 +13,4 @@ class ItemsController < ApplicationController
     # ジャンルの表示
   end
 
-
-
-
 end
