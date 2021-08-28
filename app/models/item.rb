@@ -15,6 +15,9 @@ class Item < ApplicationRecord
   attachment :image
   enum sale_status: [:販売中, :販売停止中]
   #ステータスの番号振り。左から0.1.2...と割り振られる。
+　
+　
+
 
 
 end

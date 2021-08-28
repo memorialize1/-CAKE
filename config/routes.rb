@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   #ADMIN
   namespace :admins do
     root 'homes#top'
-    get "search" => "customers#search"
+   
     resources :customer_dates, only: [:show, :index, :edit, :update]
     resources :items, except: [:destroy]
     resources :genres, except: [:new, :show, :destroy]
@@ -41,7 +41,7 @@ Rails.application.routes.draw do
   root 'homes#top'
 
 
-  get "search" => "items#search"
+ 
   get "about" =>"homes#about"
   get '/thanks' => 'homes#thanks'
   #サンクスページ
