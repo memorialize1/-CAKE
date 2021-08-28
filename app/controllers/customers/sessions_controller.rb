@@ -2,6 +2,8 @@
 
 class Customers::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
+  
+  before_action :configure_permitted_parameters, if: :devise_controller?
 
   # GET /resource/sign_in
   # def new
@@ -24,4 +26,14 @@ class Customers::SessionsController < Devise::SessionsController
   # def configure_sign_in_params
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
+  
+  private
+    def after_sign_in_path_for(resource)
+    if resource.user_status == false    #(resource)に入った値の中で、user_statusがfalseだったら--
+       sign_out resource
+       root_path
+    else
+       items_path
+    end
+    end
 end

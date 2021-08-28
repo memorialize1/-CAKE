@@ -1,3 +1,24 @@
 // Place all the styles related to the admins::homes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.button {
+  display       : inline-block;
+  border-radius : 20%;          /* 角丸       */
+  font-size     : 100px;        /* 文字サイズ */
+  text-align    : center;      /* 文字位置   */
+  cursor        : pointer;     /* カーソル   */
+  padding       : 77px 100px;   /* 余白       */
+  background    : #4da6ff;     /* 背景色     */
+  color         : #ffffff;     /* 文字色     */
+  line-height   : 2em;         /* 1行の高さ  */
+  transition    : .3s;         /* なめらか変化 */
+  box-shadow    : 10px 10px 33px #666666;  /* 影の設定 */
+  border        : 10px solid #4da6ff;    /* 枠の指定 */
+}
+.button:hover {
+  box-shadow    : none;        /* カーソル時の影消去 */
+  color         : #4da6ff;     /* 背景色     */
+  background    : #ffffff;     /* 文字色     */
+}
