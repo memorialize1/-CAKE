@@ -25,7 +25,7 @@ class CustomersController < ApplicationController
 
     def switch
        @customer = Customer.find(params[:id])
-       if @customer.update(is_enabled: false)
+       if @customer.update(user_status: false)
           sign_out current_customer #URLを踏ませずにコントローラーから直接サインアウトの指示を出す（device公式)
        end
        redirect_to root_path
